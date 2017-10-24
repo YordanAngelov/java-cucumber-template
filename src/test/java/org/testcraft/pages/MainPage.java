@@ -1,5 +1,6 @@
 package org.testcraft.pages;
 
+import com.gargoylesoftware.htmlunit.javascript.host.intl.DateTimeFormat;
 import net.sf.cglib.core.Local;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebElement;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainPage extends BasePage {
@@ -40,12 +42,31 @@ public class MainPage extends BasePage {
 
     public void selectDateUsingButton(String button){
         driver.findElement(By.xpath("//button[contains(text(),'"+button+"')]")).click();
+
     }
 
-    public void pickFutureOutDate(String days){
+    public void pickFutureOutDate(int days){
+        driver.findElement(By.id("returnDate")).click();
         List<WebElement> dates = driver.findElements(By.xpath(".//*[@id='ui-datepicker-div']/*"));
-        LocalDate today = LocalDate.now();
-//        LocalDate
+        LocalDate futureDate = LocalDate.now().plusDays(days);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d");
+        String parsedDate = futureDate.format(formatter);
+        String[] splitParsedDate = parsedDate.split(" ");
+        String futureMonth = splitParsedDate[0];
+        String futureDay = splitParsedDate[1];
+        /**
+        for(int i=0; i<20; i++){
+            while(!dates.get(i).getText().contains(splitParsedDate[0])) {
+                driver.findElement(By.cssSelector(".ui-datepicker-next.ui-corner-all")).click();
+            }
+        }
+         */
+        List<WebElement> columns = driver.findElement(By.cssSelector("#ui-datepicker-div")).findElements(By.tagName("td"));
+        for (WebElement date : columns) {
+            if (date.getText().equals(splitParsedDate[1])) {
+                date.click();
+                break;
+            }
+        }
     }
-
 }

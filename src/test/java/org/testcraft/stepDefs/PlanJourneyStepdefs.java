@@ -11,8 +11,6 @@ import org.testcraft.pages.MainPage;
 
 public class PlanJourneyStepdefs {
 
-    /** Made for exercise_one.feature */
-
     public WebDriver driver;
     public MainPage mainPage;
     public JourneyDetailsPage journeyDetailsPage;
@@ -53,7 +51,7 @@ public class PlanJourneyStepdefs {
     }
 
     @And("^Choose \"([^\"]*)\" as Out date and Return date is \"([^\"]*)\" days later$")
-    public void chooseAsOutDateAndReturnDateIsDaysLater(String arg1, String arg2) throws Throwable {
+    public void chooseAsOutDateAndReturnDateIsDaysLater(String arg1, Integer arg2) throws Throwable {
         mainPage.selectDateUsingButton(arg1);
         mainPage.pickFutureOutDate(arg2);
     }
