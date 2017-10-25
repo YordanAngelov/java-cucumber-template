@@ -25,7 +25,6 @@ Feature: Plan Journey
 
   # Exercise 4 only involved refactoring code into page objects
   # Exercise 5
-  @wip
   Scenario: Finding a return ticket X amount of days in the future
     When I click the return radio button
     And Choose "Today" as Out date and Return date is "150" days later

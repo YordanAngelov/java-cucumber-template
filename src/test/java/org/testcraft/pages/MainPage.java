@@ -1,17 +1,13 @@
 package org.testcraft.pages;
 
-import com.gargoylesoftware.htmlunit.javascript.host.intl.DateTimeFormat;
-import net.sf.cglib.core.Local;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.List;
 
 public class MainPage extends BasePage {
@@ -47,7 +43,7 @@ public class MainPage extends BasePage {
 
     }
 
-    public void pickFutureOutDate(int days){
+    public void pickFutureReturnDate(int days){
         driver.findElement(By.id("returnDate")).click();
         LocalDate futureDate = LocalDate.now().plusDays(days);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d");

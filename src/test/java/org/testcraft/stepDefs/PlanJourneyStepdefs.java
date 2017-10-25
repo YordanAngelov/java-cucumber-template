@@ -1,6 +1,5 @@
 package org.testcraft.stepDefs;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -54,7 +53,7 @@ public class PlanJourneyStepdefs {
     @And("^Choose \"([^\"]*)\" as Out date and Return date is \"([^\"]*)\" days later$")
     public void chooseAsOutDateAndReturnDateIsDaysLater(String arg1, Integer arg2) throws Throwable {
         mainPage.selectDateUsingButton(arg1);
-        mainPage.pickFutureOutDate(arg2);
+        mainPage.pickFutureReturnDate(arg2);
     }
 
     @And("^I click on menu to change the amount of travelling adults to \"([^\"]*)\" and kids to \"([^\"]*)\"$")
