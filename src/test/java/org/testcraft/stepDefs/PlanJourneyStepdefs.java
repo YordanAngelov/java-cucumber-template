@@ -45,7 +45,7 @@ public class PlanJourneyStepdefs {
         mainPage.selectReturn();
     }
 
-    @And("^Choose \"([^\"]*)\" as Out date and \"([^\"]*)\" as Return date$")
+    @And("^Choose \"([^\"]*)\" as Out date and \"([^\"]*)\" as Return date using buttons$")
     public void choose_out_date_and_return_date(String arg1, String arg2){
         mainPage.selectDateUsingButton(arg1);
         mainPage.selectDateUsingButton(arg2);
