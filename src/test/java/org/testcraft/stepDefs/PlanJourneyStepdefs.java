@@ -5,6 +5,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.testcraft.pages.JourneyDetailsPage;
 import org.testcraft.pages.MainPage;
@@ -56,4 +57,17 @@ public class PlanJourneyStepdefs {
         mainPage.pickFutureOutDate(arg2);
     }
 
+    @And("^I click on menu to change the amount of travelling adults to \"([^\"]*)\" and kids to \"([^\"]*)\"$")
+    public void iClickOnMenuToChangeTheAmountOfTravellingAdultsToAdultNumberAndKidsToKidsNumber(String arg1, String arg2) throws Throwable {
+        mainPage.clickPeopleButton();
+        mainPage.selectNumberOfAdults(arg1);
+        mainPage.selectNumberOfKids(arg2);
+        mainPage.submitPeopleTravelling();
+    }
+
+    @And("^I check the passenger amount is \"([^\"]*)\" adults and \"([^\"]*)\" kids$")
+    public void iCheckThePassengerAmountIsAdultNumberAdultsAndKidsNumberKids(String arg1, String arg2) throws Throwable {
+        Assert.assertTrue(journeyDetailsPage.checkPassengers(arg1, "adults"));
+        Assert.assertTrue(journeyDetailsPage.checkPassengers(arg2, "children"));
+    }
 }

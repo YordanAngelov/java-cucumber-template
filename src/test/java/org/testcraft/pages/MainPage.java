@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -20,6 +21,7 @@ public class MainPage extends BasePage {
     }
 
     public void selectOriginCity(String origin){
+        waitForElement(driver.findElement(By.id("originStation")));
         driver.findElement(By.id("originStation")).sendKeys(origin, Keys.TAB);
     }
 
@@ -63,5 +65,26 @@ public class MainPage extends BasePage {
                 break;
             }
         }
+    }
+
+    public void clickPeopleButton() {
+        driver.findElement(By.cssSelector(".btn.btn-default.btn-open")).click();
+    }
+
+    public void selectDropdownList(String dropdownID, String selectText){
+        Select select = new Select(driver.findElement(By.id(dropdownID)));
+        select.selectByVisibleText(selectText);
+    }
+
+    public void selectNumberOfAdults(String arg1) {
+        selectDropdownList("adults",arg1);
+    }
+
+    public void selectNumberOfKids(String arg1) {
+        selectDropdownList("children",arg1);
+    }
+
+    public void submitPeopleTravelling() {
+        driver.findElement(By.cssSelector(".btn.btn-block.btn-primary.btn-done")).click();
     }
 }
