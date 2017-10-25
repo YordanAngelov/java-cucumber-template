@@ -39,7 +39,7 @@ Feature: Plan Journey
   | originCity | destinationCity |
   | "Brighton" | "London"        |
 
-  # Extra credit 1
+  # Extra credit 1 and Scenario 1 from Craig's email
   @wip
   Scenario Outline: Get an outward ticket for an X amount of adults and Y amount of kids
     Given I am on www.thetrainline.com main page
@@ -52,3 +52,4 @@ Feature: Plan Journey
       | originCity | destinationCity | adultNumber | kidsNumber |
       | "Brighton" | "London"        | "2"         | "2"        |
 
+  # Scenario 2 from Craig's email
