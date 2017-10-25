@@ -1,6 +1,8 @@
 package org.testcraft.stepDefs;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testcraft.pages.FareFinderPage;
 
@@ -19,4 +21,9 @@ public class FareFinderStepdefs {
         fareFinderPage.getPage();
     }
 
+    @When("^I look for trains from \"([^\"]*)\" to \"([^\"]*)\"$")
+    public void iLookForTrainsFromTo(String arg1, String arg2) throws Throwable {
+        fareFinderPage.selectOriginCity(arg1);
+        fareFinderPage.selectDestinationCity(arg2);
+    }
 }

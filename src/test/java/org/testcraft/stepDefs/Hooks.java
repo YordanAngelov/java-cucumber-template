@@ -23,10 +23,10 @@ public class Hooks {
         journeyDetailsPage = new JourneyDetailsPage(driver);
         fareFinderPage = new FareFinderPage(driver);
     }
-/**
+
     @After
     public void closeBrowser() {
         driver.quit();
     }
-*/
+
 }

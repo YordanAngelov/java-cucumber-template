@@ -1,10 +1,10 @@
 Feature: Best Fare Finder
 
   # Scenario 3 from Craig's email
-  @wip
   Scenario: Finding the cheapest route for a single journey from Aberdeen to York
     Given I am on www.thetrainline.com/farefinder
-    When
+    When I look for trains from "Aberdeen" to "York"
+
     #TODO: Using the best fare finder, print out the times and price for the cheapest return from Aberdeen to York
     #TODO: Going out on the 11th Nov +/- 3 days, returning 25th Nov +/- 3 days
 
