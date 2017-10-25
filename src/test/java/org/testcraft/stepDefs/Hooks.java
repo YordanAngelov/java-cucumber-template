@@ -20,10 +20,10 @@ public class Hooks {
         mainPage = new MainPage(driver);
         journeyDetailsPage = new JourneyDetailsPage(driver);
     }
-/**
+
     @After
     public void closeBrowser() {
         driver.quit();
     }
-*/
+
 }

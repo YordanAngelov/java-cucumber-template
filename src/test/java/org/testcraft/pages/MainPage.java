@@ -47,20 +47,15 @@ public class MainPage extends BasePage {
 
     public void pickFutureOutDate(int days){
         driver.findElement(By.id("returnDate")).click();
-        List<WebElement> dates = driver.findElements(By.xpath(".//*[@id='ui-datepicker-div']/*"));
         LocalDate futureDate = LocalDate.now().plusDays(days);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d");
         String parsedDate = futureDate.format(formatter);
         String[] splitParsedDate = parsedDate.split(" ");
-        String futureMonth = splitParsedDate[0];
-        String futureDay = splitParsedDate[1];
-        /**
-        for(int i=0; i<20; i++){
-            while(!dates.get(i).getText().contains(splitParsedDate[0])) {
+        /** Selects month if it does not match the current month */
+        while(!driver.findElement(By.cssSelector(".ui-datepicker-title")).getText().contains(splitParsedDate[0])) {
                 driver.findElement(By.cssSelector(".ui-datepicker-next.ui-corner-all")).click();
-            }
         }
-         */
+        /** Selects day */
         List<WebElement> columns = driver.findElement(By.cssSelector("#ui-datepicker-div")).findElements(By.tagName("td"));
         for (WebElement date : columns) {
             if (date.getText().equals(splitParsedDate[1])) {
