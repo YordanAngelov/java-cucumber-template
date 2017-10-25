@@ -70,4 +70,5 @@ public class PlanJourneyStepdefs {
         Assert.assertTrue(journeyDetailsPage.checkPassengers(arg1, "adults"));
         Assert.assertTrue(journeyDetailsPage.checkPassengers(arg2, "children"));
     }
+
 }

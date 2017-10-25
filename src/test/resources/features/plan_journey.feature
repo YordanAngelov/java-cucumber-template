@@ -31,7 +31,6 @@ Feature: Plan Journey
     Then I click on the button to retrieve the times and prices
 
   # Extra credit 1 and Scenario 1 from Craig's email
-  @wip
   Scenario Outline: Buying an outward ticket for an X amount of adults and Y amount of kids
     And I click on menu to change the amount of travelling adults to <adultNumber> and kids to <kidsNumber>
     Then I click on the button to retrieve the times and prices
@@ -40,7 +39,3 @@ Feature: Plan Journey
     Examples:
       | adultNumber | kidsNumber |
       | "2"         | "2"        |
-
-  # Scenario 2 from Craig's email
-  Scenario: Buying a ticket returning on the same day
-    When
